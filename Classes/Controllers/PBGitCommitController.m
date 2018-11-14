@@ -76,7 +76,10 @@
 	commitMessageView.repository = self.repository;
 	commitMessageView.delegate = self;
 
-	[commitMessageView setTypingAttributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"Menlo" size:12.0] forKey:NSFontAttributeName]];
+	[commitMessageView setTypingAttributes:@{
+		 NSFontAttributeName: [NSFont fontWithName:@"Menlo" size:12.0],
+		 NSForegroundColorAttributeName: [NSColor controlTextColor]
+		 }];
 	
 	[unstagedFilesController setFilterPredicate:[NSPredicate predicateWithFormat:@"hasUnstagedChanges == 1"]];
 	[stagedFilesController setFilterPredicate:[NSPredicate predicateWithFormat:@"hasStagedChanges == 1"]];
